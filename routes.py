@@ -13,7 +13,7 @@ def handle_404(req, resp):
 class index(object):
     def on_get(self, req, resp):
         data = {'status': 200,
-                'appName': 'Shutdown Scheduler',
+                'appName': 'grafana-sendmail',
                 'author': 'devops@xti'
                 }
 
