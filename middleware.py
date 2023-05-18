@@ -4,14 +4,15 @@ from helpers import helpers
 
 
 
-class checkEnvironment(object):
-    def process_resource(self, req, resp, resource, params):
-        if helpers.env is True:
-            return
-        else:
-            description = (
-                'Please read or ask for documentation before using this service!')
-            raise falcon.HTTP_FAILED_DEPENDENCY('Unauthorized', description)
+# class checkEnvironment(object):
+#     def process_request(self, req, resp):
+#         if helpers.env == True:
+#             return
+#         else:
+#             description = (
+#                 'Please read or ask for documentation before using this service!')
+#             raise falcon.HTTP_502('Unauthorized', description)
+        
         
 class JSONTranslator:
 

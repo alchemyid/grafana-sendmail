@@ -14,7 +14,7 @@ class uuid(object):
             else:
                 helpers.getImage(id, receive)
                 data = {'status': 200,
-                        'sender_to': receive
+                        'sent_to': receive
                         }
                 resp.status = falcon.HTTP_200
                 resp.context['response'] = data

@@ -22,7 +22,8 @@ class index(object):
 
 def routes() -> falcon.App:
     app = falcon.App(middleware=[
-        JSONTranslator()
+        JSONTranslator(),
+        # checkEnvironment()
 
     ])
 

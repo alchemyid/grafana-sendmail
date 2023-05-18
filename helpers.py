@@ -21,7 +21,8 @@ class helpers:
             'Cannot serialize {!r} (type {})'.format(obj, type(obj)))
     @staticmethod
     def getImage(id, receive):
-        # print(id)
+        print(id)
+
         today = datetime.date.today()
         day = today.day
         month = today.month
@@ -66,21 +67,22 @@ class helpers:
 
     @staticmethod
     def env():
+        return True
+        # schema_app = os.getenv("SCHEMA_APP")
+        # url_app = os.getenv("URL_APP")
 
-        schema_app = os.getenv("SCHEMA_APP")
-        url_app = os.getenv("URL_APP")
+        # host = os.getenv('GF_HOST')
+        # gf_user = os.getenv('GF_USERNAME')
+        # gf_pass = os.getenv('GF_PASSWORD')
+        # schema = os.getenv('GF_URI_SCHEMA')
 
-        host = os.getenv('GF_HOST')
-        gf_user = os.getenv('GF_USERNAME')
-        gf_pass = os.getenv('GF_PASSWORD')
-        schema = os.getenv('GF_URI_SCHEMA')
+        # mail_user = os.getenv("MAIL_USER")
+        # mail_pass = os.getenv("MAIL_PASS")
+        # mail_smtp = os.getenv("MAIL_SMTP")
+        # mail_port = os.getenv("MAIL_PORT")
 
-        mail_user = os.getenv("MAIL_USER")
-        mail_pass = os.getenv("MAIL_PASS")
-        mail_smtp = os.getenv("MAIL_SMTP")
-        mail_port = os.getenv("PORT_MAIL")
 
-        url = schema+"://"+gf_user+":"+gf_pass+"@"+host+""
-        r = requests.get(url)
-        if r.status_code == 200 and (schema_app and url_app and mail_user and mail_pass and mail_smtp and mail_port) != None:
-            return True
+        # url = schema+"://"+gf_user+":"+gf_pass+"@"+host+""
+        # r = requests.get(url)
+        # if r.status_code == 200 and (schema_app and url_app and mail_user and mail_pass and mail_smtp and mail_port) != None:
+        #     return True

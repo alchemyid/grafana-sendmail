@@ -17,8 +17,8 @@ def email(id, f, to, title, receive):
   msg["From"] = sender_email
   msg["To"] = receiver_email
   filename = "assets/"+id+".png"
-  img = os.getenv("SCHEMA_APP")+"://"+os.getenv("URL_APP")+"/assets/"+id+".png"
-
+  img = os.getenv("SCHEMA_APP")+"://"+os.getenv("URL_APP")+"/assets/"+id
+  
   #HTML Message Part
   html = """\
   <!DOCTYPE html>
