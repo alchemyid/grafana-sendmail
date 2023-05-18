@@ -27,8 +27,8 @@ class helpers:
         month = today.month
         year = today.year
 
-        # f = "01/"+str(month)+"/"+str(year)+" 00:00:00"
-        f = str(day-1)+"/"+str(month)+"/"+str(year)+" 00:00:00"
+        f = "01/"+str(month)+"/"+str(year)+" 00:00:00"
+        # f = str(day-1)+"/"+str(month)+"/"+str(year)+" 00:00:00"
         
         if day < 31:
             d = day
