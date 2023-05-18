@@ -13,6 +13,11 @@ class uuid(object):
                 )
             else:
                 helpers.getImage(id, receive)
+                data = {'status': 200,
+                        'sender_to': receive
+                        }
+                resp.status = falcon.HTTP_200
+                resp.context['response'] = data
 
         except ValueError as e:
             raise falcon.HTTPError(falcon.HTTP_500, description=str(e))

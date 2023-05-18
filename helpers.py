@@ -56,6 +56,7 @@ class helpers:
         title = json.dumps(resp_dict["dashboard"]["panels"][0]["title"])
 
         email(id+"_"+rand, f, to, title, receive)
+
         
     @staticmethod
     def command(s):
