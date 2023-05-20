@@ -26,7 +26,6 @@ class helpers:
     @staticmethod
     def getImage(id, receive):
         print(id)
-
         today = datetime.date.today()
         day = today.day
         month = today.month

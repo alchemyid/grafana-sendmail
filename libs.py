@@ -1,6 +1,5 @@
 import falcon
 from  helpers import helpers
-import mimetypes
 
 class uuid(object):
     def on_get(self, req, resp, id):

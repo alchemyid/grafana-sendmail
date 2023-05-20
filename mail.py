@@ -57,7 +57,7 @@ def email(id, filename, datefrom, dateto, title, receive):
                 <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                   <tr>
                     <td style="padding:0 0 36px 0;color:#153643;">
-                      <h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Repor """+datefrom+""" """+dateto+"""</h1>
+                      <h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Report """+datefrom+""" - """+dateto+"""</h1>
                       <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan et dictum, nisi libero ultricies ipsum, posuere neque at erat.</p>
                       <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
                     </td>
@@ -69,14 +69,14 @@ def email(id, filename, datefrom, dateto, title, receive):
                       <tr>
                         <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
                           <p style="margin:0;font-size:16px;line-height:10px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">CPU Usages</h1></p>  
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=730&h=435&c=tl&q=50" alt="CPU Usage" width="390" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://thumb.xti.app/?url="""+img+"""&w=730&h=435&c=tl&q=50" alt="CPU Usage" width="390" style="height:auto;display:block;" /></p>
                           <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
                           <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p>
                         </td>
                         <td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>
                         <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
                           <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Memory Usage</h1></p>
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=730&h=435&c=tr&q=50" alt="Memory Usage" width="390" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://thumb.xti.app/?url="""+img+"""&w=730&h=435&c=tr&q=50" alt="Memory Usage" width="390" style="height:auto;display:block;" /></p>
                           <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Morbi porttitor, eget est accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed.</p>
                           <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
                         </td>
@@ -93,7 +93,7 @@ def email(id, filename, datefrom, dateto, title, receive):
                       <tr>
                         <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
                           <p style="margin:0;font-size:16px;line-height:10px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Storage Usage & Total Nodes</h1></p> 
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=1450&h=390&c=center&q=50" alt="Storage Usage & Total Nodes" width="800" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://thumb.xti.app/?url="""+img+"""&w=1450&h=390&c=center&q=50" alt="Storage Usage & Total Nodes" width="800" style="height:auto;display:block;" /></p>
                           <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
                           <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Link Storage</a></p>
                         </td>
@@ -108,7 +108,7 @@ def email(id, filename, datefrom, dateto, title, receive):
                       <tr>
                         <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
                           <p style="margin:0;font-size:16px;line-height:10px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Network Maximum</h1></p>  
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=730&h=435&c=bl&q=50" alt="Network Maximum" width="390" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://thumb.xti.app/?url="""+img+"""&w=730&h=435&c=bl&q=50" alt="Network Maximum" width="390" style="height:auto;display:block;" /></p>
                           <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
                           <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p>
                         </td>
@@ -116,7 +116,7 @@ def email(id, filename, datefrom, dateto, title, receive):
                         <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
                           <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Network Average</h1></p>
                         
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=730&h=435&c=br&q=50" alt="" width="390" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://thumb.xti.app/?url="""+img+"""&w=730&h=435&c=br&q=50" alt="" width="390" style="height:auto;display:block;" /></p>
                           <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Morbi porttitor, eget est accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed.</p>
                           <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
                         </td>
