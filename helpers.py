@@ -117,16 +117,16 @@ class helpers:
         if object_name is None: 
             object_name = os.path.basename(file_name)
             
-        session = boto3.Session(profile_name='reporting-grafana')
+        # session = boto3.Session(profile_name='reporting-grafana')
 
         # Upload the file
-        # s3_client = boto3.client(
-        #     "s3",
-        #     aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
-        #     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY")
-        # )
+        s3_client = boto3.client(
+            "s3",
+            aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
+            aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY")
+        )
 
-        s3_client = session.client('s3')
+        # s3_client = session.client('s3')
 
         try:
             s3_client.upload_file(
