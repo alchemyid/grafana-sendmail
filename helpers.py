@@ -131,7 +131,7 @@ class helpers:
         try:
             s3_client.upload_file(
                 file_name, 
-                bucket, os.getenv("BUCKET_NAME"), 
+                bucket, 
                 object_name,
                 ExtraArgs={
                     "ACL": "public-read",
