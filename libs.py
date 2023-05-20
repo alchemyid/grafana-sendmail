@@ -28,9 +28,9 @@ class dashboardfile(object):
             # do some sanity check on the filename
             
             resp.status = falcon.HTTP_200
-            resp.content_type = mimetypes.guess_type("assets/"+id+".png")
+            resp.content_type = 'image/png'
 
-            with open("assets/"+id+".png", 'rb') as f:
+            with open("assets/"+id, 'rb') as f:
                 resp.body = f.read()
 
         except ValueError as e:

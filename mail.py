@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 
-def email(id, f, to, title, receive):
+def email(id, filename, datefrom, dateto, title, receive):
 
   sender_email = os.getenv("MAIL_USER")
   receiver_email = receive
@@ -16,8 +16,9 @@ def email(id, f, to, title, receive):
   msg["Subject"] = "Monthly Report "+ title
   msg["From"] = sender_email
   msg["To"] = receiver_email
-  filename = "assets/"+id+".png"
-  img = os.getenv("SCHEMA_APP")+"://"+os.getenv("URL_APP")+"/assets/"+id
+  # filename = "assets/"+id+".png"
+  # img = os.getenv("SCHEMA_APP")+"://"+os.getenv("URL_APP")+"/assets/"+id
+  img = "https://"+os.getenv("BUCKET_NAME")+".s3.ap-southeast-1.amazonaws.com/"+id+"/"+filename+".png"
   
   #HTML Message Part
   html = """\
@@ -45,10 +46,10 @@ def email(id, f, to, title, receive):
     <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
       <tr>
         <td align="center" style="padding:0;">
-          <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
+          <table role="presentation" style="width:850px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
             <tr>
               <td align="center" style="padding:40px 0 30px 0;background:#70bbd9;">
-                <img src="https://learning.xapiens.id/pluginfile.php/1/theme_moove/logo/1665728746/xti_white.png" alt="" width="300" style="height:auto;display:block;" />
+                <img src="https://xti-reporting-grafana-prod.s3.ap-southeast-1.amazonaws.com/xti_white.png" alt="" width="300" style="height:auto;display:block;" />
               </td>
             </tr>
             <tr>
@@ -56,43 +57,75 @@ def email(id, f, to, title, receive):
                 <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                   <tr>
                     <td style="padding:0 0 36px 0;color:#153643;">
-                      <h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Laporan """+f+""" """+to+"""</h1>
+                      <h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Repor """+datefrom+""" """+dateto+"""</h1>
                       <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan et dictum, nisi libero ultricies ipsum, posuere neque at erat.</p>
                       <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
                     </td>
                   </tr>
-                  <tr>
-                    <td style="padding:0;">
-                      <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
-                        <tr>
-                          <td style="width:260px;padding:0;vertical-align:top;color:#153643;">
-                            <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+""" alt="" width="540" style="height:auto;display:block;" /></p>
-                            <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
-                            <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="padding:0;">
-                      <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
-                        <tr>
-                          <td style="width:260px;padding:0;vertical-align:top;color:#153643;">
-                            <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/left.gif" alt="" width="260" style="height:auto;display:block;" /></p>
-                            <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
-                            <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p>
-                          </td>
-                          <td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>
-                          <td style="width:260px;padding:0;vertical-align:top;color:#153643;">
-                            <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/right.gif" alt="" width="260" style="height:auto;display:block;" /></p>
-                            <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Morbi porttitor, eget est accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed.</p>
-                            <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
+
+                <tr>
+                  <td style="padding:0;">
+                    <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                      <tr>
+                        <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
+                          <p style="margin:0;font-size:16px;line-height:10px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">CPU Usages</h1></p>  
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=730&h=435&c=tl&q=50" alt="CPU Usage" width="390" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p>
+                        </td>
+                        <td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>
+                        <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Memory Usage</h1></p>
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=730&h=435&c=tr&q=50" alt="Memory Usage" width="390" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Morbi porttitor, eget est accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed.</p>
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr><td style="height:30px;padding:0;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+                <tr>
+                  <td style="padding:0;">
+                    <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                      <tr>
+                        <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
+                          <p style="margin:0;font-size:16px;line-height:10px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Storage Usage & Total Nodes</h1></p> 
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=1450&h=390&c=center&q=50" alt="Storage Usage & Total Nodes" width="800" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Link Storage</a></p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr><td style="height:30px;padding:0;font-size:0;line-height:0;">&nbsp;</td></tr>
+                <tr>
+                  <td style="padding:0;">
+                    <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                      <tr>
+                        <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
+                          <p style="margin:0;font-size:16px;line-height:10px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Network Maximum</h1></p>  
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=730&h=435&c=bl&q=50" alt="Network Maximum" width="390" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p>
+                        </td>
+                        <td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>
+                        <td style="width:400px;padding:0;vertical-align:top;color:#153643;">
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><h1 style="font-size:20px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Network Average</h1></p>
+                        
+                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="""+img+"""&w=730&h=435&c=br&q=50" alt="" width="390" style="height:auto;display:block;" /></p>
+                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Morbi porttitor, eget est accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed.</p>
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+
                 </table>
               </td>
             </tr>
@@ -133,7 +166,7 @@ def email(id, f, to, title, receive):
   msg.attach(part)
 
   # Add Attachment
-  with open(filename, "rb") as attachment:
+  with open("assets/"+id+"_"+filename+".png", "rb") as attachment:
       part = MIMEBase("application", "octet-stream")
       part.set_payload(attachment.read())
     
@@ -142,7 +175,7 @@ def email(id, f, to, title, receive):
   # Set mail headers
   part.add_header(
       "Content-Disposition",
-      "attachment", filename= filename
+      "attachment", filename= "assets/"+id+"_"+filename+".png"
   )
   msg.attach(part)
   connection = smtplib.SMTP(host=os.getenv("MAIL_SMTP"), port=os.getenv("MAIL_PORT"))

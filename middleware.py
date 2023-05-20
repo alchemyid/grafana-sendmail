@@ -2,16 +2,15 @@ import json
 import falcon
 from helpers import helpers
 
+class checkEnvironment(object):
 
-
-# class checkEnvironment(object):
-#     def process_request(self, req, resp):
-#         if helpers.env == True:
-#             return
-#         else:
-#             description = (
-#                 'Please read or ask for documentation before using this service!')
-#             raise falcon.HTTP_502('Unauthorized', description)
+    def process_resource(self, req, resp, resource, params):
+        if helpers.env() == True:
+            return
+        else:
+            description = (
+                'Please check your environment variable!')
+            raise falcon.HTTPPreconditionFailed('Failed', description)
         
         
 class JSONTranslator:

@@ -1,5 +1,5 @@
 import falcon
-from middleware import JSONTranslator
+from middleware import JSONTranslator, checkEnvironment
 from libs import uuid, dashboardfile
 
 def handle_404(req, resp):
@@ -24,11 +24,10 @@ def routes() -> falcon.App:
     app = falcon.App(middleware=[
         JSONTranslator(),
         # checkEnvironment()
-
     ])
 
     app.add_route('/', index())
     app.add_route('/id/{id}', uuid())
-    app.add_route('/assets/{id}', dashboardfile())
+    app.add_route('/assets/{id}', dashboardfile())    
     app.add_sink(handle_404, '')
     return app
