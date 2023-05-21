@@ -1,0 +1,6 @@
+{
+    "domain_acl": [
+        "mon.xti.app",
+        "grafana"
+    ]
+}

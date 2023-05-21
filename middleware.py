@@ -1,11 +1,18 @@
 import json
 import falcon
 from helpers import helpers
+from urllib.parse import urlparse
+import os
 
 class checkEnvironment(object):
 
     def process_resource(self, req, resp, resource, params):
-        if helpers.env() == True:
+        
+        aclDomain = helpers.read_config("domain_acl", None)
+        parse = urlparse(os.getenv('GF_URI_SCHEMA')+"://"+os.getenv('GF_HOST'))
+        domain = '{uri.netloc}'.format(uri=parse)
+
+        if helpers.env() == True and domain in aclDomain:
             return
         else:
             description = (
